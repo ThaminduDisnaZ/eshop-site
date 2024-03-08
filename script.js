@@ -66,7 +66,7 @@ function signIn() {
         if (r.readyState == 4) {
             var t = r.responseText;
             if (t == "success") {
-                window.location = "index.php";
+                window.location = "home.php";
             } else {
                 document.getElementById("msg2").innerHTML = t;
             }
@@ -523,7 +523,7 @@ function basicSearch(x) {
 
 function bas() {
 
-    window.location.href="index.php";
+    window.location.href="home.php";
    
 }
 

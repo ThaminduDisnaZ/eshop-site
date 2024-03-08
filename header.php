@@ -23,7 +23,7 @@ session_start();
 
         </div>
         <div class="container-fluid all-show">
-            <a class="navbar-brand" href="home.php">TD Tech <i class="fa fa-laptop"></i></a>
+            <a class="navbar-brand" href="index.php">TD Tech <i class="fa fa-laptop"></i></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@ if (isset($_SESSION["u"])) {
                         <a class="nav-link active" aria-current="page" href="#"></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="home.php">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
 
                     <li class="nav-item">
@@ -68,7 +68,7 @@ if (isset($_SESSION["u"])) {
                         <a class="nav-link" href="cart.php"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-warning" href="advancedSearch.php">Adavanced Search</a>
+                        <a class="nav-link btn w-100 btn-warning" href="advancedSearch.php">Search.. <span class="fa fa-search"><a ></a></span></a>
                     </li>
                     <li class="nav-item">
                         <nav class="navbar bg-body-tertiary">
@@ -107,7 +107,7 @@ if (isset($_SESSION["u"])) {
     $data = $_SESSION["u"];
 
 ?>
-                        <?php
+                    <?php
    
 $email = $_SESSION["u"]["email"];
         $Profile_image_rs = Database::search("SELECT * FROM `profile_image`
@@ -117,42 +117,43 @@ $email = $_SESSION["u"]["email"];
 
         if ($Profile_image_num == 1) {
         ?>
-            <img src="<?php echo ($Profile_image_data["path"]); ?>" width="50px" height="50px" class="rounded-circle" />
-        <?php
+                    <img src="<?php echo ($Profile_image_data["path"]); ?>" width="50px" height="50px"
+                        class="rounded-circle" />
+                    <?php
         } else {
         ?>
 
-            <img src="resources/profile_image/new user.svg" width="50px" height="50px" class="rounded-circle" />
+                    <img src="resources/profile_image/new user.svg" width="50px" height="50px" class="rounded-circle" />
 
-        <?php
+                    <?php
         }
 
         ?>
-
-</div>
-
-        
-
-                    <div class="dropdown-center dropdown">
-                        <button style="border-radius: 5px;" class="dropdown-toggle text-bg-dark text-bg-opacity-10"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="text-lg-start"><b>Welcome </b><?php echo ($data["fname"]); ?></span><br>
-                            <span class="text-lg-start"><?php echo ($data["email"]); ?></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li> <a class="dropdown-item" onclick="signout();">Sign Out</a></li>
-                            <li><a class="dropdown-item" href="userProfile.php">My Profile</a></li>
-
-                        </ul>
-                    </div>
-
-
 
                 </div>
 
 
 
-                <?php
+                <div class="dropdown-center dropdown">
+                    <button style="border-radius: 5px;" class="dropdown-toggle text-bg-dark text-bg-opacity-10"
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="text-lg-start"><b>Welcome </b><?php echo ($data["fname"]); ?></span><br>
+                        <span class="text-lg-start"><?php echo ($data["email"]); ?></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" onclick="signout();">Sign Out</a></li>
+                        <li><a class="dropdown-item" href="userProfile.php">My Profile</a></li>
+
+                    </ul>
+                </div>
+
+
+
+            </div>
+
+
+
+            <?php
 
 if (empty($image_data["path"])) {
 
@@ -161,8 +162,8 @@ if (empty($image_data["path"])) {
                 
     } else {
     ?>
-                <img src="<?php echo $image_data["path"]; ?>" class="rounded" style="width: 15px;" id="viewImg" />
-                <?php
+            <img src="<?php echo $image_data["path"]; ?>" class="rounded" style="width: 15px;" id="viewImg" />
+            <?php
     }
 } else {
 
@@ -171,20 +172,19 @@ if (empty($image_data["path"])) {
 
 
 
-                <button href="index.php" style="border-radius: 5px;" class=" text-bg-dark text-bg-opacity-10"
-                    type="button">
-                    <a href="index.php"></i> <span class="text-lg-start"><b>Sign In </b>or</span><br></a>
-                    <span class="text-lg-start"><a href="index.php"></a>Register</span>
-                </button>
+            <button href="login.php" style="border-radius: 5px;" class=" text-bg-dark text-bg-opacity-10" type="button">
+                <a href="login.php"></i> <span class="text-lg-start"><b>Sign In </b>or</span><br></a>
+                <span class="text-lg-start"><a href="login.php"></a>Register</span>
+            </button>
 
 
-                <?php
+            <?php
 }
 
 ?>
 
 
-            </div>
+        </div>
         </div>
         </div>
     </nav>
