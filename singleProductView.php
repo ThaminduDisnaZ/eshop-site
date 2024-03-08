@@ -1,6 +1,5 @@
 <?php
-
-require "connection.php";
+   include "header.php" ;
 
 if (isset($_GET["id"])) {
 
@@ -42,7 +41,7 @@ if (isset($_GET["id"])) {
             <div class="container-fluid">
                 <div class="row">
 
-                    <?php include "header.php" ?>
+        
 
                     <div class="col-12 mt-0 bg-white singleProduct">
                         <div class="row">

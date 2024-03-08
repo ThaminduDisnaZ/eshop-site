@@ -2,7 +2,7 @@
 
  include "header.php"; 
 
-require "connection.php";
+
 
 if (isset($_SESSION["u"])) {
 

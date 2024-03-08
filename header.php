@@ -1,5 +1,5 @@
 <?php
-
+        require "connection.php";
 session_start();
 
 ?>
@@ -108,7 +108,7 @@ if (isset($_SESSION["u"])) {
 
 ?>
                         <?php
-           require "connection.php";
+   
 $email = $_SESSION["u"]["email"];
         $Profile_image_rs = Database::search("SELECT * FROM `profile_image`
         WHERE `user_email`='" . $email . "'");
