@@ -46,7 +46,7 @@
 
                                 <?php
 
-                                require "connection.php";
+                            
                                 $user = $_SESSION["u"]["email"];
                                 $watch_rs = Database::search("SELECT*FROM `watchlist` WHERE `user_email`='" . $user . "'");
                                 $watch_num = $watch_rs->num_rows;

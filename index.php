@@ -23,13 +23,7 @@
         <div class="row">
             <?php include "header.php"; 
        ?>
-
-
-          
-
-
-
-                <?php
+            <?php
 
                              
 
@@ -44,32 +38,32 @@ for ($x = 0; $x < $category_num; $x++) {
 }
 ?>
 
-                <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="resources\slider images\asus1.jpg" class="d-block w-100">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="resources\slider images\samsung1.jpg" class="d-block w-100">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="resources\slider images\keyboard1.jpg" class="d-block w-100">
-                        </div>
+            <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="resources\slider images\asus1.jpg" class=" w-50 ">
                     </div>
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    <div class="carousel-item">
+                        <img src="resources\slider images\samsung1.jpg" class=" w-50">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="resources\slider images\keyboard1.jpg" class=" w-50">
+                    </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
 
 
-                <?php
+            <?php
                         $c_rs = Database::search("SELECT * FROM `category`");
                         $c_num = $category_rs->num_rows;
 
@@ -83,22 +77,22 @@ for ($x = 0; $x < $category_num; $x++) {
 
 
 
-                <!--catagory name-->
-                <div class="col-12 mt-3 mb-3">
-                    <a href="#"
-                        class="text-decoration-none link-light fs-3 fw-bold"><?php echo $cdata["name"] ?></a>&nbsp;&nbsp;
-                    <a href="#" class="text-decoration-none link-light fs-6">See All &nbsp;&rarr;</a>
-                </div>
-                <!--catagory name-->
+            <!--catagory name-->
+            <div class="col-12 mt-3 mb-3">
+                <a href="#"
+                    class="text-decoration-none link-light fs-3 fw-bold"><?php echo $cdata["name"] ?></a>&nbsp;&nbsp;
+                <a href="#" class="text-decoration-none link-light fs-6">See All &nbsp;&rarr;</a>
+            </div>
+            <!--catagory name-->
 
 
-                <!--products-->
-                <div class="col-12 mb-3">
-                    <div class="row border border-warning border-5 rounded-4">
-                        <div class="col-12">
-                            <div class="row justify-content-center gap-2">
+            <!--products-->
+            <div class="col-12 mb-3">
+                <div class="row border border-warning border-5 rounded-4">
+                    <div class="col-12">
+                        <div class="row justify-content-center gap-2">
 
-                                <?php
+                            <?php
 
                                             $product_rs = Database::search("SELECT*FROM `product` WHERE `category_id` = '" . $cdata["id"] . "'
                                              AND `status_id` = '1' ORDER BY `datetime_added` DESC LIMIT 4 OFFSET 0 ");
@@ -109,56 +103,56 @@ for ($x = 0; $x < $category_num; $x++) {
                                                 $product_data = $product_rs->fetch_assoc();
 
                                             ?>
-                                <div class=" card bg-secondary bg-opacity-75 col-6 col-lg-2 mt-2 mb-2 border border-warning border-opacity-50 rounded-4"
-                                    style="width: 18rem;">
-                                    <?php
+                            <div class=" card bg-secondary bg-opacity-75 col-6 col-lg-2 mt-2 mb-2 border border-warning border-opacity-50 rounded-4"
+                                style="width: 18rem;">
+                                <?php
                                                     $image_rs = Database::search("SELECT*FROM `images` WHERE `product_id`='" . $product_data["id"] . "' ");
                                                     $image_data = $image_rs->fetch_assoc();
                                                     ?>
-                                    <img src="<?php echo ($image_data["code"]); ?>"
-                                        class="border border-warning border-3 card-img-top img-thumbnail mt-2 "
-                                        style="height: 180px;" />
-                                    <div class="card-body ms-0 m-0 text-center">
-                                        <h5 class="text-light"><?php echo $product_data["title"]; ?></h5>
+                                <img src="<?php echo ($image_data["code"]); ?>"
+                                    class="border border-warning border-3 card-img-top img-thumbnail mt-2 "
+                                    style="height: 180px;" />
+                                <div class="card-body ms-0 m-0 text-center">
+                                    <h5 class="text-light"><?php echo $product_data["title"]; ?></h5>
 
 
-                                        <?php
+                                    <?php
 
                                                         if ($product_data["qty"] > 0) {
                                                         ?>
 
-                                        <span class="card-text text-warning fw-bold">In Stock</span><br />
-                                        <span class="s fw-bold"><?php echo $product_data["qty"]; ?> Items
-                                            Available</span><br /><br />
+                                    <span class="card-text text-warning fw-bold">In Stock</span><br />
+                                    <span class="s fw-bold"><?php echo $product_data["qty"]; ?> Items
+                                        Available</span><br /><br />
+                                    <div class="border-3 border border-warning mb-4 rounded-3 ">
+                                        <span
+                                            class="text-light fs-4">Rs.<?php echo $product_data["price"]; ?>.00</span><br />
+                                    </div>
+                                    <a class="col-12 btn btn-success"
+                                        href="<?php echo "singleProductView.php?id=" . $product_data["id"]; ?>">Buy
+                                        Now</a>
+
+                                    <div class="row">
+
+                                        <button class="col-6 btn btn-danger mt-2"
+                                            onclick="addToCart(<?php echo $product_data['id']; ?>);"><span
+                                                class="fa fa-shopping-cart"></span></button>
+
+                                        <?php
+                                                        } else {
+                                                            ?>
+
+                                        <span class="card-text text-warning fw-bold">Out of Stock</span><br />
                                         <div class="border-3 border border-warning mb-4 rounded-3 ">
                                             <span
                                                 class="text-light fs-4">Rs.<?php echo $product_data["price"]; ?>.00</span><br />
                                         </div>
-                                        <a class="col-12 btn btn-success"
-                                            href="<?php echo "singleProductView.php?id=" . $product_data["id"]; ?>">Buy
-                                            Now</a>
+                                        <span class="card-text text-success fw-bold">0 Items
+                                            Available</span><br /><br />
+                                        <button class="col-12 btn btn-success disabled">Buy Now</button>
+                                        <button class="col-12 btn btn-danger mt-2 disabled">Add to cart</button>
 
-                                        <div class="row">
-
-                                            <button class="col-6 btn btn-danger mt-2"
-                                                onclick="addToCart(<?php echo $product_data['id']; ?>);"><span
-                                                    class="fa fa-shopping-cart"></span></button>
-
-                                            <?php
-                                                        } else {
-                                                            ?>
-
-                                            <span class="card-text text-warning fw-bold">Out of Stock</span><br />
-                                            <div class="border-3 border border-warning mb-4 rounded-3 ">
-                                                <span
-                                                    class="text-light fs-4">Rs.<?php echo $product_data["price"]; ?>.00</span><br />
-                                            </div>
-                                            <span class="card-text text-success fw-bold">0 Items
-                                                Available</span><br /><br />
-                                            <button class="col-12 btn btn-success disabled">Buy Now</button>
-                                            <button class="col-12 btn btn-danger mt-2 disabled">Add to cart</button>
-
-                                            <?php
+                                        <?php
                                                         }
 
 
@@ -168,7 +162,7 @@ for ($x = 0; $x < $category_num; $x++) {
 
 
 
-                                            <?php
+                                        <?php
 
                                                             if (isset($_SESSION["u"])) {
                                                                 $data = $_SESSION["u"];
@@ -183,34 +177,34 @@ for ($x = 0; $x < $category_num; $x++) {
 
                                                                 if ($watchlist_num == 1) {
                                                             ?>
-                                            <button class="col-6 mt-2 btn btn-primary"
-                                                onclick="addtoWatchlist(<?php echo $product_data['id']; ?>);">
-                                                <i class=" text-danger fs-5"
-                                                    id="heart<?php echo $product_data['id']; ?>"><span
-                                                        class="fa fa-heart"></span></i>
-                                            </button>
-                                            <?php
+                                        <button class="col-6 mt-2 btn btn-primary"
+                                            onclick="addtoWatchlist(<?php echo $product_data['id']; ?>);">
+                                            <i class=" text-danger fs-5"
+                                                id="heart<?php echo $product_data['id']; ?>"><span
+                                                    class="fa fa-heart"></span></i>
+                                        </button>
+                                        <?php
                                                                 } else {
                                                                 ?>
-                                            <button class="col-6 mt-2 btn btn-warning"
-                                                onclick="addtoWatchlist(<?php echo $product_data['id']; ?>);">
-                                                <i class=" text-dark fs-5"
-                                                    id="heart<?php echo $product_data['id']; ?>"><span
-                                                        class="fa fa-heart"></span></i>
-                                            </button>
-                                            <?php
+                                        <button class="col-6 mt-2 btn btn-warning"
+                                            onclick="addtoWatchlist(<?php echo $product_data['id']; ?>);">
+                                            <i class=" text-dark fs-5"
+                                                id="heart<?php echo $product_data['id']; ?>"><span
+                                                    class="fa fa-heart"></span></i>
+                                        </button>
+                                        <?php
                                                                 }
                                                             } else {
 
 
 
                                                                 ?>
-                                            <button class="col-6 border mt-2 btn btn-dark"
-                                                onclick="loginfirst(<?php echo $product_data['id']; ?>);">
-                                                <i class="bi bi-heart-fill text-reset fs-5"
-                                                    id="heart<?php echo $product_data['id']; ?>"></i>
-                                            </button>
-                                            <?php
+                                        <button class="col-6 border mt-2 btn btn-dark"
+                                            onclick="loginfirst(<?php echo $product_data['id']; ?>);">
+                                            <i class="bi bi-heart-fill text-reset fs-5"
+                                                id="heart<?php echo $product_data['id']; ?>"></i>
+                                        </button>
+                                        <?php
                                                             }
 
                                                             ?>
@@ -218,7 +212,7 @@ for ($x = 0; $x < $category_num; $x++) {
 
 
 
-                                            <?php
+                                        <?php
 
 
 
@@ -230,28 +224,28 @@ for ($x = 0; $x < $category_num; $x++) {
 
                                                             ?>
 
-                                        </div>
                                     </div>
                                 </div>
-                                <?php
+                            </div>
+                            <?php
                                             }
                                             ?>
 
 
 
-                            </div>
                         </div>
                     </div>
                 </div>
-                <!--products-->
+            </div>
+            <!--products-->
 
-                <?php
+            <?php
                         }
                         ?>
 
 
-            </div>
         </div>
+    </div>
 
     </div>
 

@@ -68,7 +68,8 @@ if (isset($_SESSION["u"])) {
                         <a class="nav-link" href="cart.php"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn w-100 btn-warning" href="advancedSearch.php">Search.. <span class="fa fa-search"><a ></a></span></a>
+                        <a class="nav-link btn w-100 btn-warning" href="advancedSearch.php">Search.. <span
+                                class="fa fa-search"><a></a></span></a>
                     </li>
                     <li class="nav-item">
                         <nav class="navbar bg-body-tertiary">

@@ -21,7 +21,7 @@
         <div class="row">
             <?php include "header.php";
 
-            require "connection.php";
+         
 
             if (isset($_SESSION["u"])) {
                 $email = $_SESSION["u"]["email"];
@@ -107,20 +107,6 @@
                                         $seller = $seller_data["fname"] . " " . $seller_data["lname"];
 
                                     ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
